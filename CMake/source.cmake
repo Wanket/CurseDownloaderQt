@@ -1,0 +1,6 @@
+macro(source)
+    file(GLOB WINDOW_SRC "Window/*.cpp")
+    file(GLOB UTILS_SRC "Utils/*.cpp")
+    add_executable(${PROJECT_NAME} main.cpp ${WINDOW_SRC} ${UTILS_SRC})
+    target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Network)
+endmacro()
