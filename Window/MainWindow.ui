@@ -139,6 +139,13 @@
      </widget>
     </item>
     <item>
+     <widget class="QProgressBar" name="downloadProgress">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QListWidget" name="modsList"/>
     </item>
    </layout>

@@ -111,7 +111,7 @@ void MainWindow::onDownloadButtonClick()
                 QString url = QString("https://minecraft.curseforge.com/projects/") %
                               QString::number(static_cast<int>(file["projectID"])) % "/files/" %
                               QString::number(static_cast<int>(file["fileID"])) % "/download";
-                QString fileName = downloader.downloadFile(url, modsDir);
+                QString fileName = downloader.downloadFile(url, modsDir, ui.downloadProgress);
 
                 modsListFile.addMod(file["projectID"], fileName);
 

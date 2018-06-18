@@ -2,6 +2,19 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QtWidgets/QProgressBar>
+
+class Downloader : public QObject
+{
+Q_OBJECT
+public:
+    QString downloadFile(const QUrl &from, const QDir &to, QProgressBar *downloadProgress);
+
+private:
+    QNetworkAccessManager networkAccessManager;
+
+    QNetworkReply *getReply(const QUrl &from, QProgressBar *downloadProgress);
+};
 
 class DownloadException : public std::runtime_error
 {
@@ -12,16 +25,4 @@ public:
     {}
 
     const QNetworkReply::NetworkError error;
-};
-
-class Downloader : public QObject
-{
-Q_OBJECT
-public:
-    QString downloadFile(const QUrl &from, const QDir &to);
-
-private:
-    QNetworkAccessManager networkAccessManager;
-
-    QNetworkReply *getReply(const QUrl &from);
 };
