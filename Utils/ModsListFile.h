@@ -10,11 +10,11 @@ class ModsListFile
 public:
     explicit ModsListFile(const QString &path);
 
-    bool addMod(const int mod, const QString &fileName);
+    bool addMod(int mod, const QString &fileName);
 
-    bool existMod(const int mod);
+    bool existMod(int mod);
 
-    QString getMod(const int mod);
+    QString getMod(int mod);
 
 private:
     QSettings settings;
